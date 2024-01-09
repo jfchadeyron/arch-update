@@ -1,81 +1,83 @@
+
 # Arch-Update
 
-## Table of contents
+## Table des matières
 
 - [Description](#description)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Utilisation](#usage)
 - [Documentation](#documentation)
-- [Tips and tricks](#tips-and-tricks)
-- [Contributing](#contributing)
+- [Astuces et conseils](#tips-and-tricks)
+- [Contributions](#contributing)
 
 ## Description
 
-An update notifier/applier for Arch Linux that assists you with important pre/post update tasks and that includes a (.desktop) clickeable icon that can easily be integrated with any DE/WM, dock, status/launch bar or app menu.  
-Optional support for AUR/Flatpak packages updates and desktop notifications.
+Un notificateur/vérificateur de mise à jour pour Arch Linux qui vous assiste avec des tâches importantes avant et après la mise à jour. Inclut une icône cliquable (.desktop) facilement intégrable à tout environnement de bureau (DE/WM), dock, barre de statut/démarrage ou menu d'applications.
+Support optionnel pour les mises à jour de paquets AUR/Flatpak et les notifications de bureau.
 
-Features:
+Fonctionnalités :
 
-- Includes a (.desktop) clickeable icon that automatically changes to act as an update notifier/applier. Easy to integrate with any DE/WM, dock, status/launch bar, app menu, etc...
-- Automatic check and listing of every packages available for update (through [checkupdates](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "pacman-contrib package")).
-- Offers to print the latest Arch Linux news before applying updates (through [curl](https://archlinux.org/packages/core/x86_64/curl/ "curl package") and [htmlq](https://archlinux.org/packages/extra/x86_64/htmlq/ "htmlq package")).
-- Automatic check and listing of orphan packages and offering you to remove them.
-- Automatic check for old and/or uninstalled cached packages in `pacman`'s cache and offering you to remove them (through [paccache](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "pacman-contrib package")).
-- Helps you processing pacnew/pacsave files (through [pacdiff](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "pacman-contrib package"), optionally requires [vim](https://archlinux.org/packages/extra/x86_64/vim/ "vim package") as the default [merge program](https://wiki.archlinux.org/title/Pacman/Pacnew_and_Pacsave#pacdiff "pacdiff merge program")).
-- Automatic check for pending kernel updates requiring a reboot to be applied and offers to do so if there's one.
-- Support for both [sudo](https://archlinux.org/packages/core/x86_64/sudo/ "sudo package") and [doas](https://archlinux.org/packages/extra/x86_64/opendoas/ "opendoas package").
-- Optional support for AUR packages update (through [yay](https://aur.archlinux.org/packages/yay "yay AUR package") or [paru](https://aur.archlinux.org/packages/paru "paru AUR package")).
-- Optional support for Flatpak packages update (through [flatpak](https://archlinux.org/packages/extra/x86_64/flatpak "Flatpak package")).
-- Optional support for desktop notifications (through [libnotify](https://archlinux.org/packages/extra/x86_64/libnotify "libnotify package"), see <https://wiki.archlinux.org/title/Desktop_notifications>).
+- Inclut une icône cliquable (.desktop) qui change automatiquement pour agir comme un notificateur/vérificateur de mises à jour. Facile à intégrer avec tout environnement de bureau (DE/WM), dock, barre de statut/de lancement, menu d'applications, etc.
+- Vérification automatique et liste de tous les paquets disponibles pour mise à jour (via [checkupdates](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "paquet pacman-contrib")).
+- Propose d'imprimer les dernières nouvelles d'Arch Linux avant d'appliquer les mises à jour (via [curl](https://archlinux.org/packages/core/x86_64/curl/ "paquet curl") et [htmlq](https://archlinux.org/packages/extra/x86_64/htmlq/ "paquet htmlq")).
+- Vérification automatique et liste des paquets orphelins et proposition de les supprimer.
+- Vérification automatique pour les anciens paquets mis en cache et/ou désinstallés dans le cache de `pacman` et proposition de les supprimer (via [paccache](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "paquet pacman-contrib")).
+- Aide au traitement des fichiers pacnew/pacsave (via [pacdiff](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "paquet pacman-contrib"), nécessite éventuellement [vim](https://archlinux.org/packages/extra/x86_64/vim/ "paquet vim") comme programme de fusion par défaut [merge program](https://wiki.archlinux.org/title/Pacman/Pacnew_and_Pacsave#pacdiff "programme de fusion pacdiff")).
+- Vérification automatique pour les mises à jour du noyau en attente nécessitant un redémarrage pour être appliquées et proposition de le faire s'il y en a une.
+- Support pour [sudo](https://archlinux.org/packages/core/x86_64/sudo/ "paquet sudo") et [doas](https://archlinux.org/packages/extra/x86_64/opendoas/ "paquet opendoas").
+- Support optionnel pour la mise à jour des paquets AUR (via [yay](https://aur.archlinux.org/packages/yay "paquet AUR yay") ou [paru](https://aur.archlinux.org/packages/paru "paquet AUR paru")).
+- Support optionnel pour la mise à jour des paquets Flatpak (via [flatpak](https://archlinux.org/packages/extra/x86_64/flatpak "paquet Flatpak")).
+- Support optionnel pour les notifications de bureau (via [libnotify](https://archlinux.org/packages/extra/x86_64/libnotify "paquet libnotify"), voir <https://wiki.archlinux.org/title/Desktop_notifications>).
+- 
 
 ## Installation
 
 ### AUR
 
-Install the [arch-update](https://aur.archlinux.org/packages/arch-update "arch-update AUR package") AUR package.
+Installez le paquet AUR [arch-update](https://aur.archlinux.org/packages/arch-update "paquet AUR arch-update").
 
-### From Source
+### Depuis la Source
 
-Install dependencies:
+Installez les dépendances :
 
 ```bash
 sudo pacman -S --needed pacman-contrib curl htmlq diffutils
 ```
 
-Download the archive of the [latest stable release](https://github.com/Antiz96/arch-update/releases/latest) and extract it *(alternatively, you can clone this repository via `git`)*.
+Téléchargez l'archive de la [dernière version stable](https://github.com/Antiz96/arch-update/releases/latest) et extrayez-la *(alternativement, vous pouvez cloner ce dépôt via `git`)*.
 
-To install `arch-update`, go into the extracted/cloned directory and run the following command:
+Pour installer `arch-update`, allez dans le répertoire extrait/cloné et exécutez la commande suivante :
 
 ```bash
 sudo make install
 ```
 
-To uninstall `arch-update`, go into the extracted/cloned directory and run the following command:
+Pour désinstaller `arch-update`, allez dans le répertoire extrait/cloné et exécutez la commande suivante :
 
 ```bash
 sudo make uninstall
 ```
 
-## Usage
+## Utilisation
 
-The usage consist of integrating [the .desktop file](#the-desktop-file) anywhere (could be your desktop, your dock, your status/launch bar and/or your app menu) and enabling the [systemd timer](#the-systemd-timer).
+L'utilisation consiste à intégrer [le fichier .desktop](#the-desktop-file) n'importe où (cela peut être votre bureau, votre dock, votre barre de statut/de lancement et/ou votre menu d'applications) et à activer le [timer systemd](#the-systemd-timer).
 
-Here is a little YouTube presentation/review of `arch-update` that [Cardiac](https://github.com/Cardiacman13) and I made on [his YouTube channel](https://www.youtube.com/@Cardiacman) (**videos there, including this one, are in french**):
+Voici une petite présentation/revue YouTube de `arch-update` que [Cardiac](https://github.com/Cardiacman13) et moi avons faite sur [sa chaîne YouTube](https://www.youtube.com/@Cardiacman) (**les vidéos là-bas, y compris celle-ci, sont en français**) :
 
-*Warning: Arch-Update's features and default behavior may have changed/evolved since then!*
+*Avertissement : Les fonctionnalités et le comportement par défaut d'Arch-Update peuvent avoir changé/évolué depuis !*
 
-[![youtube_presentation](https://github.com/Antiz96/arch-update/assets/53110319/23af5180-1881-486d-bd5a-3edd48ed1a08)](https://www.youtube.com/watch?v=QkOkX70SEmo)
+[![présentation youtube](https://github.com/Antiz96/arch-update/assets/53110319/23af5180-1881-486d-bd5a-3edd48ed1a08)](https://www.youtube.com/watch?v=QkOkX70SEmo)
 
-### The .desktop file
+### Le fichier .desktop
 
-The .desktop file is located in `/usr/share/applications/arch-update.desktop` (or `/usr/local/share/applications/arch-update.desktop` if you installed `arch-update` [from source](#from-source)).  
-Its icon will automatically change depending on the different states (checking for updates, updates available, installing updates, up to date).  
-It will launch the relevant series of functions to perform a complete and proper update when clicked (see the [Documentation](#documentation) chapter). It is easy to integrate with any DE/WM, dock, status/launch bar or app menu.
+Le fichier .desktop se trouve dans `/usr/share/applications/arch-update.desktop` (ou dans `/usr/local/share/applications/arch-update.desktop` si vous avez installé `arch-update` [depuis la source](#from-source)).  
+Son icône changera automatiquement en fonction des différents états (vérification des mises à jour, mises à jour disponibles, installation des mises à jour, à jour).  
+Il lancera la série de fonctions pertinentes pour effectuer une mise à jour complète et appropriée lorsqu'on clique dessus (voir le chapitre [Documentation](#documentation)). Il est facile à intégrer avec n'importe quel DE/WM, dock, barre de statut/de lancement ou menu d'applications.
 
-### The systemd timer
+### Le timer systemd
 
-There is a systemd service in `/usr/lib/systemd/user/arch-update.service` (or in `/usr/local/lib/systemd/user/arch-update.service` if you installed `arch-update` [from source](#from-source)) that executes the `check` function when started (see the [Documentation](#documentation) chapter).  
-To start it automatically **at boot and then once every hour**, enable the associated systemd timer (you can modify the auto-check cycle to your liking, see the [Tips and tricks - Modify the auto-check cycle](#modify-the-auto-check-cycle) chapter):
+Il y a un service systemd dans `/usr/lib/systemd/user/arch-update.service` (ou dans `/usr/local/lib/systemd/user/arch-update.service` si vous avez installé `arch-update` [depuis la source](#from-source)) qui exécute la fonction `check` lorsqu'il est lancé (voir le chapitre [Documentation](#documentation)).  
+Pour le démarrer automatiquement **au démarrage et ensuite une fois par heure**, activez le timer systemd associé (vous pouvez modifier le cycle de vérification automatique selon vos préférences, voir le chapitre [Astuces et conseils - Modifier le cycle de vérification automatique](#modify-the-auto-check-cycle)) :
 
 ```bash
 systemctl --user enable --now arch-update.timer
