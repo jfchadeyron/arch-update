@@ -11,7 +11,7 @@
 
 ## Description
 
-Un notificateur/applicateur de mises à jour pour Arch Linux qui vous aide dans les tâches importantes de pré/post-mise à jour et qui comprend une icône cliquable (.desktop) qui peut facilement être intégrée à n'importe quel DE/WM, dock, barre d'état/lancement ou menu d'application.
+Un notificateur/applicateur de mises à jour pour Arch Linux qui vous aide dans les tâches importantes de pré/post-mise à jour et qui comprend une icône cliquable (.desktop) qui peut facilement être intégrée à n'importe quel Environnement de Bureau/Manager de fenêtres, dock, barre d'état/lancement ou menu d'application.
 Prise en charge facultative des mises à jour des packages AUR/Flatpak et des notifications sur le bureau.
 
 Caractéristiques:
