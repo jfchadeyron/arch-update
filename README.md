@@ -18,7 +18,7 @@ Caractéristiques:
 
 - Inclut une icône cliquable (.desktop) qui change automatiquement pour agir comme un notificateur/applicateur de mise à jour. Facile à intégrer avec n'importe quel DE/WM, dock, barre d'état/lancement, menu d'application, etc...
 - Vérification et liste automatiques de tous les packages disponibles pour la mise à jour (via [checkupdates](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "pacman-contrib package")).
-- Propose d'imprimer les dernières nouvelles d'Arch Linux avant d'appliquer les mises à jour (via [curl](https://archlinux.org/packages/core/x86_64/curl/ "curl package") et [htmlq](https://archlinux. org/packages/extra/x86_64/htmlq/ "package htmlq")).
+- Propose d'imprimer les dernières nouvelles d'Arch Linux avant d'appliquer les mises à jour (via [curl](https://archlinux.org/packages/core/x86_64/curl/ "curl package") et [htmlq] (https://archlinux. org/packages/extra/x86_64/htmlq/ "package htmlq")).
 - Vérification et listage automatique des packages orphelins et vous proposant de les supprimer.
 - Vérification automatique des paquets anciens et/ou désinstallés dans le cache de `pacman` et vous proposant de les supprimer (via [paccache](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "pacman -paquet de contribution")).
 - Vous aide à traiter les fichiers pacnew/pacsave (via [pacdiff](https://archlinux.org/packages/extra/x86_64/pacman-contrib/ "pacman-contrib package"), nécessite éventuellement [vim](https:// archlinux.org/packages/extra/x86_64/vim/ "vim package") comme [programme de fusion] par défaut (https://wiki.archlinux.org/title/Pacman/Pacnew_and_Pacsave#pacdiff "programme de fusion pacdiff")).
